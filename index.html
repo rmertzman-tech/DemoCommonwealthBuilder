@@ -1,47 +1,821 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, viewport-fit=cover"
-  />
-  <title>FAIM-QIRF Demo • Ethics & Epistemic Justice</title>
-  <meta name="color-scheme" content="light only" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-    rel="stylesheet"
-  >
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    html, body { height: 100%; }
-    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
-    .chip { @apply text-xs px-2 py-1 rounded-full bg-gray-100; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CommonBuilder - Build together. No soul-cost.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Navigation */
+        nav {
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav h1 {
+            font-size: 1.5rem;
+            color: #2563eb;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #666;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #2563eb;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        /* Principles Section */
+        .principles {
+            padding: 4rem 0;
+            background: white;
+        }
+        
+        .principles h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .principle-card {
+            background: #f0f9ff;
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid #2563eb;
+        }
+        
+        .principle-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .principle-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #1e40af;
+        }
+        
+        .principle-card p {
+            color: #666;
+        }
+        
+        /* Demo Section */
+        .demo-section {
+            padding: 4rem 0;
+            background: #fafafa;
+        }
+        
+        .demo-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .screen {
+            display: none;
+        }
+        
+        .screen.active {
+            display: block;
+        }
+        
+        .screen h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #1e40af;
+        }
+        
+        .screen p {
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+        
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .examples {
+            background: #fef3c7;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 4px solid #f59e0b;
+        }
+        
+        .examples h4 {
+            margin-bottom: 0.5rem;
+            color: #92400e;
+        }
+        
+        .examples ul {
+            margin-left: 1.5rem;
+            color: #78350f;
+        }
+        
+        .tip {
+            background: #dbeafe;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 4px solid #2563eb;
+        }
+        
+        .tip strong {
+            color: #1e40af;
+        }
+        
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid #e5e7eb;
+        }
+        
+        button {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #1d4ed8;
+        }
+        
+        .btn-secondary {
+            background: #e5e7eb;
+            color: #666;
+        }
+        
+        .btn-secondary:hover {
+            background: #d1d5db;
+        }
+        
+        .progress-bar {
+            background: #e5e7eb;
+            height: 8px;
+            border-radius: 4px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            background: #2563eb;
+            height: 100%;
+            transition: width 0.3s;
+        }
+        
+        .coming-soon {
+            background: #f3f4f6;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 2px dashed #9ca3af;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .coming-soon h4 {
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+        }
+        
+        .coming-soon p {
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+        
+        /* Roadmap Section */
+        .roadmap {
+            padding: 4rem 0;
+            background: white;
+        }
+        
+        .roadmap h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .phase {
+            background: #f0f9ff;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #2563eb;
+        }
+        
+        .phase h3 {
+            color: #1e40af;
+            margin-bottom: 1rem;
+        }
+        
+        .phase.current {
+            background: #dbeafe;
+            border-left-color: #10b981;
+        }
+        
+        .phase.current::before {
+            content: "← WE ARE HERE";
+            display: inline-block;
+            background: #10b981;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Join Section */
+        .join {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .join h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .join p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .roles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+            text-align: left;
+        }
+        
+        .role-card {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .role-card h4 {
+            margin-bottom: 0.5rem;
+        }
+        
+        footer {
+            background: #1f2937;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
 </head>
-<body class="bg-gray-50">
-  <header class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-      <a href="#/home" class="font-bold text-lg">FAIM-QIRF • Demo</a>
-      <nav class="flex gap-3 text-sm">
-        <a class="hover:underline" href="#/playground">Playground</a>
-        <a class="hover:underline" href="#/philosophers">Philosophers</a>
-        <a class="hover:underline" href="#/labs">Injustice Labs</a>
-        <a class="hover:underline" href="#/repair">Repair</a>
-        <a class="hover:underline" href="#/about">About</a>
-      </nav>
-    </div>
-  </header>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <h1>CommonBuilder</h1>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#demo">Try Demo</a></li>
+                <li><a href="#roadmap">Roadmap</a></li>
+                <li><a href="#join">Join Team</a></li>
+            </ul>
+        </div>
+    </nav>
 
-  <main id="app" class="max-w-7xl mx-auto px-4 py-6"></main>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h2>COMMONBUILDER</h2>
+            <p>Build together. No soul-cost.</p>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                You see the problem. You know it can be solved.<br>
+                But people who need to work together... won't.
+            </p>
+            <a href="#demo" class="cta-button">Try the Interactive Demo</a>
+        </div>
+    </section>
 
-  <footer class="border-t mt-10">
-    <div class="max-w-7xl mx-auto px-4 py-6 text-xs text-gray-500">
-      Demo is stateless. Use Export/Import to share a configuration. No tracking, no cookies.
-    </div>
-  </footer>
+    <!-- Principles Section -->
+    <section class="principles">
+        <div class="container">
+            <h2>Three Principles That Make It Work</h2>
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <div class="icon">🎯</div>
+                    <h3>One Deed, Many Reasons</h3>
+                    <p>Coordinate on the shared function you can test together, not on a single story about why it's right. Different motivations, same measurable action.</p>
+                </div>
+                <div class="principle-card">
+                    <div class="icon">🔬</div>
+                    <h3>Show Me—Small, Auditable, Reversible</h3>
+                    <p>Start with low-risk pilots that anyone can inspect. Pre-register what you're testing, the protocol, and the outcome band. If it works, scale. If not, learn.</p>
+                </div>
+                <div class="principle-card">
+                    <div class="icon">❤️</div>
+                    <h3>No Soul-Cost (Integrity-Safe)</h3>
+                    <p>Coordination may stretch you. It must not break you. Participation is voluntary and must not require violating your core values. Exit is always available.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <script type="module" src="./app/main.js"></script>
+    <!-- Demo Section -->
+    <section id="demo" class="demo-section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 2rem;">Interactive Demo</h2>
+            <p style="text-align: center; max-width: 600px; margin: 0 auto 3rem; color: #666;">
+                This is a simplified demonstration of what CommonBuilder will do. Try building your first coordination experiment!
+            </p>
+            
+            <div class="demo-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressBar" style="width: 0%"></div>
+                </div>
+                
+                <!-- Screen 1: Welcome -->
+                <div class="screen active" id="screen1">
+                    <h3>Welcome to CommonBuilder</h3>
+                    <p>Let's walk through designing your first coordination experiment.</p>
+                    <p>This demo shows 3 key steps. The full app will have 8 steps plus features like:</p>
+                    <ul style="margin-left: 2rem; margin-bottom: 1.5rem; color: #666;">
+                        <li>Identity Kernel builder (protect your core values)</li>
+                        <li>Conscience Gate mechanism (pause without shame)</li>
+                        <li>Integrity checks for all participants</li>
+                        <li>PDF export of your complete plan</li>
+                        <li>Example library of successful builds</li>
+                        <li>Active build dashboard</li>
+                    </ul>
+                    <div class="tip">
+                        <strong>💡 This is a demo:</strong> You're seeing version 0.1. The full app is being built by a student team. Want to help? <a href="#join">Join us!</a>
+                    </div>
+                    <div class="button-group">
+                        <div></div>
+                        <button class="btn-primary" onclick="nextScreen()">Start Building →</button>
+                    </div>
+                </div>
+
+                <!-- Screen 2: The Stuck Problem -->
+                <div class="screen" id="screen2">
+                    <h3>What's the Stuck Problem?</h3>
+                    <p>Tell us in your own words—no fancy language needed.</p>
+                    
+                    <div class="form-group">
+                        <label>What problem are you trying to solve?</label>
+                        <textarea id="stuckProblem" placeholder="e.g., Students want fossil-free investing, but trustees worry about violating fiduciary duty..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Why isn't it solved already?</label>
+                        <div style="margin-top: 0.5rem;">
+                            <label style="display: block; font-weight: normal; margin-bottom: 0.5rem;">
+                                <input type="checkbox"> The resources/capabilities exist but aren't connected
+                            </label>
+                            <label style="display: block; font-weight: normal; margin-bottom: 0.5rem;">
+                                <input type="checkbox"> People who could help have different politics/beliefs
+                            </label>
+                            <label style="display: block; font-weight: normal; margin-bottom: 0.5rem;">
+                                <input type="checkbox"> Everyone's stuck arguing about WHY instead of testing WHAT
+                            </label>
+                            <label style="display: block; font-weight: normal;">
+                                <input type="checkbox"> Past attempts failed and people are burned out
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="examples">
+                        <h4>Examples of stuck problems:</h4>
+                        <ul>
+                            <li>Campus divestment deadlock</li>
+                            <li>Community food desert (capabilities exist but uncoordinated)</li>
+                            <li>Workplace teams won't collaborate</li>
+                            <li>Neighborhood safety concerns</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button class="btn-secondary" onclick="prevScreen()">← Back</button>
+                        <button class="btn-primary" onclick="nextScreen()">Next: Name the Deed →</button>
+                    </div>
+                </div>
+
+                <!-- Screen 3: Name the Deed -->
+                <div class="screen" id="screen3">
+                    <h3>Name the Deed (The Shared Function)</h3>
+                    <p>Write the function in neutral, testable language that EVERYONE can agree to test—even if they're doing it for completely different reasons.</p>
+                    
+                    <div class="examples">
+                        <h4>❌ BAD:</h4>
+                        <ul>
+                            <li>"Make finance moral" (Not testable, assumes one morality)</li>
+                            <li>"Force divestment" (Uses conflict language)</li>
+                        </ul>
+                        <h4 style="margin-top: 1rem;">✅ GOOD:</h4>
+                        <ul>
+                            <li>"Reduce financed-emissions intensity ≥5% while maintaining return within ±0.5% vs. benchmark"</li>
+                            <li>"Increase fresh food access by 50 families while supporting local farmers"</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Your Shared Function (what are you testing together?):</label>
+                        <textarea id="sharedFunction" placeholder="Can we maintain long-term returns while reducing emissions exposure by at least 5%?"></textarea>
+                    </div>
+                    
+                    <div class="tip">
+                        <strong>💡 The "Different Reasons" Test:</strong> Can each participant pursue this for their OWN authentic reasons? If yes, you've found functional equivalence!
+                    </div>
+                    
+                    <div class="button-group">
+                        <button class="btn-secondary" onclick="prevScreen()">← Back</button>
+                        <button class="btn-primary" onclick="nextScreen()">See Preview →</button>
+                    </div>
+                </div>
+
+                <!-- Screen 4: Preview / Coming Soon -->
+                <div class="screen" id="screen4">
+                    <h3>Preview Your Build</h3>
+                    <p>Here's what you've designed so far:</p>
+                    
+                    <div style="background: #f9fafb; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0; border-left: 4px solid #2563eb;">
+                        <h4 style="margin-bottom: 1rem; color: #1e40af;">YOUR PROOF OF CARE (L0)</h4>
+                        <p><strong>The Problem:</strong></p>
+                        <p id="previewProblem" style="margin-bottom: 1rem; color: #666;">
+                            [Your problem description will appear here]
+                        </p>
+                        <p><strong>The Shared Function:</strong></p>
+                        <p id="previewFunction" style="color: #666;">
+                            [Your shared function will appear here]
+                        </p>
+                    </div>
+                    
+                    <h4 style="margin-top: 2rem; margin-bottom: 1rem;">Next Steps in Full App:</h4>
+                    
+                    <div class="coming-soon">
+                        <h4>📋 Design the L0 Protocol</h4>
+                        <p>Define the smallest test: scope, duration, resources, roles</p>
+                    </div>
+                    
+                    <div class="coming-soon">
+                        <h4>✅ Success Criteria (Outcome Band)</h4>
+                        <p>Set measurable thresholds: success/mixed/learning</p>
+                    </div>
+                    
+                    <div class="coming-soon">
+                        <h4>❤️ Integrity Check</h4>
+                        <p>Verify each participant can join without violating their Identity Kernel</p>
+                    </div>
+                    
+                    <div class="coming-soon">
+                        <h4>⚠️ Conscience Gate Setup</h4>
+                        <p>Pre-specify alternative roles if someone needs to pause</p>
+                    </div>
+                    
+                    <div class="coming-soon">
+                        <h4>📄 Generate PDF Plan</h4>
+                        <p>Export complete, shareable document ready to use</p>
+                    </div>
+                    
+                    <div class="tip">
+                        <strong>This demo shows the concept.</strong> The full app will guide you through all these steps and generate a complete, usable plan. Want to help build it? <a href="#join">We're recruiting!</a>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button class="btn-secondary" onclick="prevScreen()">← Back</button>
+                        <button class="btn-primary" onclick="alert('Full app coming soon! Join the team to help build it.')">Download PDF (Coming Soon)</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap" class="roadmap">
+        <div class="container">
+            <h2>Development Roadmap</h2>
+            
+            <div class="phase current">
+                <h3>Phase 1: Demo & Concept Validation (Current)</h3>
+                <p><strong>Timeline:</strong> Week 1-2</p>
+                <p><strong>Goals:</strong></p>
+                <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+                    <li>Create interactive demo (this page!)</li>
+                    <li>Present to students and faculty</li>
+                    <li>Recruit development team</li>
+                    <li>Validate that people understand the concept</li>
+                </ul>
+                <p><strong>Status:</strong> In progress. Share feedback!</p>
+            </div>
+            
+            <div class="phase">
+                <h3>Phase 2: Core Functionality Build</h3>
+                <p><strong>Timeline:</strong> 6-8 weeks</p>
+                <p><strong>Team Needed:</strong> 2-3 frontend developers, 1-2 backend developers, 1 UI/UX designer</p>
+                <p><strong>Features:</strong></p>
+                <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+                    <li>Complete all 8 screens of the builder flow</li>
+                    <li>Identity Kernel tool</li>
+                    <li>Conscience Gate mechanism</li>
+                    <li>PDF export with professional formatting</li>
+                    <li>User accounts and save progress</li>
+                    <li>Mobile-responsive design</li>
+                </ul>
+            </div>
+            
+            <div class="phase">
+                <h3>Phase 3: Community & Learning Features</h3>
+                <p><strong>Timeline:</strong> 8-12 weeks</p>
+                <p><strong>Team Needed:</strong> Add 1 backend dev, 1 content curator, 2-3 testers</p>
+                <p><strong>Features:</strong></p>
+                <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+                    <li>Example library (browse successful builds)</li>
+                    <li>Active build dashboard (track your proofs)</li>
+                    <li>Change-log feature (document learning)</li>
+                    <li>Three-lens ethics check (optional tool)</li>
+                    <li>Capability matcher (find collaborators)</li>
+                </ul>
+            </div>
+            
+            <div class="phase">
+                <h3>Phase 4: Beta Test & Iterate</h3>
+                <p><strong>Timeline:</strong> 4-6 weeks</p>
+                <p><strong>Goals:</strong></p>
+                <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+                    <li>50+ beta users build real proofs</li>
+                    <li>Track: completion rate, launch rate, 60-day sustainability</li>
+                    <li>Iterate based on feedback</li>
+                    <li>Prepare for public launch</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Team Section -->
+    <section id="join" class="join">
+        <div class="container">
+            <h2>Help Us Build This</h2>
+            <p>CommonBuilder is being developed as a collaborative student project.<br>
+            We need talented people who want to build something meaningful.</p>
+            
+            <div class="roles-grid">
+                <div class="role-card">
+                    <h4>🎨 UI/UX Designer</h4>
+                    <p>Design beautiful, intuitive interfaces. Make complex coordination simple.</p>
+                </div>
+                <div class="role-card">
+                    <h4>💻 Frontend Developer</h4>
+                    <p>Build the React app. Bring the screens to life. TypeScript/JS.</p>
+                </div>
+                <div class="role-card">
+                    <h4>🗄️ Backend Developer</h4>
+                    <p>Design APIs and database. Handle user data securely. Node/Python.</p>
+                </div>
+                <div class="role-card">
+                    <h4>📝 Content Creator</h4>
+                    <p>Write examples, documentation, help text. Make it accessible.</p>
+                </div>
+                <div class="role-card">
+                    <h4>🧪 User Researcher</h4>
+                    <p>Test with real users. Find what works and what doesn't.</p>
+                </div>
+                <div class="role-card">
+                    <h4>🎯 Project Coordinator</h4>
+                    <p>Keep the team organized. Manage timeline and deliverables.</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 3rem;">
+                <h3 style="margin-bottom: 1rem;">What You'll Get:</h3>
+                <ul style="list-style: none; font-size: 1.1rem; line-height: 2;">
+                    <li>✅ Build a real production app used by real people</li>
+                    <li>✅ Portfolio piece that demonstrates impact</li>
+                    <li>✅ Learn modern development practices</li>
+                    <li>✅ Work on meaningful coordination problems</li>
+                    <li>✅ Potential academic credit (arrange with faculty)</li>
+                    <li>✅ Letters of recommendation for contributors</li>
+                </ul>
+            </div>
+            
+            <div style="margin-top: 2rem;">
+                <p><strong>Time Commitment:</strong> 5-10 hours/week for 12 weeks</p>
+                <p><strong>Start Date:</strong> As soon as team is assembled</p>
+            </div>
+            
+            <div style="margin-top: 2rem;">
+                <a href="mailto:your-email@university.edu?subject=CommonBuilder Team Application" class="cta-button">
+                    Apply to Join the Team
+                </a>
+            </div>
+            
+            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+                Or email: your-email@university.edu with your interest and experience
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 CommonBuilder Project | Open Source | Built by students, for everyone</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+                Based on Adaptive Moral Commonwealth methodology | <a href="https://github.com/yourusername/commonbuilder" style="color: #60a5fa;">GitHub</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        let currentScreen = 1;
+        const totalScreens = 4;
+
+        function updateProgress() {
+            const progress = ((currentScreen - 1) / (totalScreens - 1)) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        function nextScreen() {
+            if (currentScreen < totalScreens) {
+                // Save data before moving
+                if (currentScreen === 2) {
+                    const problem = document.getElementById('stuckProblem').value;
+                    document.getElementById('previewProblem').textContent = 
+                        problem || '[Your problem description will appear here]';
+                }
+                if (currentScreen === 3) {
+                    const func = document.getElementById('sharedFunction').value;
+                    document.getElementById('previewFunction').textContent = 
+                        func || '[Your shared function will appear here]';
+                }
+                
+                document.getElementById('screen' + currentScreen).classList.remove('active');
+                currentScreen++;
+                document.getElementById('screen' + currentScreen).classList.add('active');
+                updateProgress();
+                window.scrollTo({ top: document.getElementById('demo').offsetTop - 80, behavior: 'smooth' });
+            }
+        }
+
+        function prevScreen() {
+            if (currentScreen > 1) {
+                document.getElementById('screen' + currentScreen).classList.remove('active');
+                currentScreen--;
+                document.getElementById('screen' + currentScreen).classList.add('active');
+                updateProgress();
+                window.scrollTo({ top: document.getElementById('demo').offsetTop - 80, behavior: 'smooth' });
+            }
+        }
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 60,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        updateProgress();
+    </script>
 </body>
 </html>
