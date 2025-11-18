@@ -81,6 +81,16 @@
             opacity: 0.95;
         }
         
+        .demo-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            backdrop-filter: blur(10px);
+        }
+        
         .cta-button {
             display: inline-block;
             background: white;
@@ -138,10 +148,156 @@
             color: #666;
         }
         
+        /* Hall of Moral Translation Section */
+        .translation-hall {
+            padding: 4rem 0;
+            background: #fafafa;
+        }
+        
+        .translation-hall h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .translation-hall > p {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+        
+        .translation-intro {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+            border-left: 4px solid #10b981;
+        }
+        
+        .translation-intro h3 {
+            color: #059669;
+            margin-bottom: 1rem;
+        }
+        
+        .example-case {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .example-case h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #1e40af;
+        }
+        
+        .deed-statement {
+            background: #dbeafe;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #2563eb;
+        }
+        
+        .deed-statement strong {
+            display: block;
+            color: #1e40af;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .deed-statement p {
+            font-size: 1.1rem;
+            color: #1e3a8a;
+        }
+        
+        .translation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .framework-view {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-top: 3px solid #2563eb;
+        }
+        
+        .framework-view .emoji {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .framework-view h4 {
+            color: #1e40af;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+        
+        .framework-view .quote {
+            font-style: italic;
+            color: #475569;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .framework-view .framework-label {
+            font-size: 0.85rem;
+            color: #64748b;
+            font-weight: 600;
+        }
+        
+        .outcome-box {
+            background: #d1fae5;
+            border: 2px solid #10b981;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            text-align: center;
+        }
+        
+        .outcome-box strong {
+            display: block;
+            color: #065f46;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .outcome-box p {
+            color: #047857;
+            font-size: 1rem;
+        }
+        
+        .key-insight {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+        
+        .key-insight strong {
+            display: block;
+            color: #92400e;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .key-insight p {
+            color: #78350f;
+        }
+        
         /* Demo Section */
         .demo-section {
             padding: 4rem 0;
-            background: #fafafa;
+            background: white;
         }
         
         .demo-container {
@@ -403,6 +559,10 @@
                 flex-direction: column;
                 gap: 0.5rem;
             }
+            
+            .translation-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -413,6 +573,7 @@
             <h1>CommonBuilder</h1>
             <ul>
                 <li><a href="#home">Home</a></li>
+                <li><a href="#hall">Hall of Translation</a></li>
                 <li><a href="#demo">Try Demo</a></li>
                 <li><a href="#roadmap">Roadmap</a></li>
                 <li><a href="#join">Join Team</a></li>
@@ -423,6 +584,9 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
+            <div class="demo-badge">
+                ⚠️ Demo Version - Help us build the real thing
+            </div>
             <h2>COMMONBUILDER</h2>
             <p>Build together. No soul-cost.</p>
             <p style="font-size: 1.2rem; margin-bottom: 2rem;">
@@ -457,6 +621,149 @@
         </div>
     </section>
 
+    <!-- Hall of Moral Translation Section -->
+    <section id="hall" class="translation-hall">
+        <div class="container">
+            <h2>The Hall of Moral Translation</h2>
+            <p>
+                The same deed can serve different authentic moral frameworks.<br>
+                This is how coordination works WITHOUT requiring anyone to convert or compromise.
+            </p>
+            
+            <div class="translation-intro">
+                <h3>Why This Matters</h3>
+                <p>
+                    When you first hear about CommonBuilder, you might wonder: "Will this respect MY values?" 
+                    The Hall of Moral Translation shows you that people with YOUR moral framework have already 
+                    succeeded using this methodology—for their own authentic reasons, not because they pretended 
+                    to believe something else.
+                </p>
+                <p style="margin-top: 1rem;">
+                    This isn't theory. These are real cases. Each shows how different people pursued the same 
+                    testable function while honoring their own deeply held values.
+                </p>
+            </div>
+
+            <div class="example-case">
+                <h3>Real Example: University Endowment ESG Testing</h3>
+                
+                <p><strong>Context:</strong> A university was deadlocked. Student coalition urged fossil-free 
+                investing. Trustees emphasized fiduciary duty. Both sides were stuck in belief conflict.</p>
+                
+                <div class="deed-statement">
+                    <strong>THE SHARED DEED (What everyone could test together):</strong>
+                    <p>"Test if moving 1% of endowment to ESG fund can maintain returns within ±0.5% while 
+                    reducing financed-emissions intensity by ≥5% over 12 months"</p>
+                </div>
+                
+                <p style="margin: 1.5rem 0;">
+                    <strong>Here's how different moral frameworks saw this SAME deed:</strong>
+                </p>
+                
+                <div class="translation-grid">
+                    <div class="framework-view">
+                        <span class="emoji">🌍</span>
+                        <h4>Climate Justice Advocate</h4>
+                        <p class="quote">
+                            "This is a concrete step toward divesting from catastrophic harm. It tests whether 
+                            we can reduce our complicity in climate destruction without the economic sacrifice 
+                            argument. If it works, we scale it. This is real action, not symbolism."
+                        </p>
+                        <p class="framework-label">Framework: Harm reduction + intergenerational justice</p>
+                    </div>
+                    
+                    <div class="framework-view">
+                        <span class="emoji">💼</span>
+                        <h4>Fiduciary Conservative</h4>
+                        <p class="quote">
+                            "This is prudent risk management and portfolio diversification testing. ESG factors 
+                            are increasingly financially material. We're testing if alternative screening improves 
+                            risk-adjusted returns. That's exactly what fiduciary duty requires: evidence-based 
+                            decision making."
+                        </p>
+                        <p class="framework-label">Framework: Fiduciary duty + long-term value preservation</p>
+                    </div>
+                    
+                    <div class="framework-view">
+                        <span class="emoji">⛪</span>
+                        <h4>Faith-Based Steward</h4>
+                        <p class="quote">
+                            "This honors creation care and responsible stewardship. We're testing whether our 
+                            investments can align with our stated values about caring for creation while 
+                            maintaining the resources needed to serve our mission. It's integrity of witness."
+                        </p>
+                        <p class="framework-label">Framework: Stewardship theology + institutional integrity</p>
+                    </div>
+                    
+                    <div class="framework-view">
+                        <span class="emoji">📊</span>
+                        <h4>Effective Altruist</h4>
+                        <p class="quote">
+                            "This generates rigorous evidence about impact-aligned investing performance. 
+                            Pre-registered protocol, clear success metrics, independent audit. The data will 
+                            inform future resource allocation decisions across many institutions. High expected 
+                            information value."
+                        </p>
+                        <p class="framework-label">Framework: Evidence-based effectiveness + measurable impact</p>
+                    </div>
+                    
+                    <div class="framework-view">
+                        <span class="emoji">🗽</span>
+                        <h4>Libertarian Pragmatist</h4>
+                        <p class="quote">
+                            "This is voluntary market-based action, not coercion. We're testing whether consumers 
+                            (students, alumni, donors) actually value ESG screening enough to support it when 
+                            they see the performance data. Market discovery process, not central planning."
+                        </p>
+                        <p class="framework-label">Framework: Voluntary exchange + market-based solutions</p>
+                    </div>
+                    
+                    <div class="framework-view">
+                        <span class="emoji">⚖️</span>
+                        <h4>Social Contract Liberal</h4>
+                        <p class="quote">
+                            "This passes the veil-of-ignorance test. Students, trustees, staff, and alumni 
+                            all have legitimate interests. The small test distributes risks fairly while 
+                            generating information that serves everyone's planning needs. Procedurally just."
+                        </p>
+                        <p class="framework-label">Framework: Fairness as procedure + stakeholder inclusion</p>
+                    </div>
+                </div>
+                
+                <div class="outcome-box">
+                    <strong>✓ OUTCOME: Success on all measures</strong>
+                    <p>
+                        Return: +0.4% vs benchmark (within ±0.5% band) | 
+                        Emissions: -7.1% reduction (exceeded 5% target) | 
+                        Scaled to L1 (5% of endowment)
+                    </p>
+                </div>
+                
+                <div class="key-insight">
+                    <strong>🔑 The Key Insight:</strong>
+                    <p>
+                        <strong>None of them had to pretend. None had to convert.</strong> Each pursued the 
+                        SAME testable function for their OWN authentic reasons. The climate advocate didn't 
+                        have to care about fiduciary duty. The trustee didn't have to become a climate activist. 
+                        The faith-based steward didn't have to adopt utilitarian ethics.
+                    </p>
+                    <p style="margin-top: 1rem;">
+                        They coordinated on WHAT to test, not WHY they valued it. That's functional equivalence. 
+                        That's how you build together without soul-cost.
+                    </p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <p style="font-size: 1.1rem; color: #666; margin-bottom: 1rem;">
+                    In the full app, you'll find dozens of examples organized by moral framework,
+                    so you can see how people with YOUR values have used this methodology successfully.
+                </p>
+                <a href="#demo" class="cta-button">Try Designing Your Own Build →</a>
+            </div>
+        </div>
+    </section>
+
     <!-- Demo Section -->
     <section id="demo" class="demo-section">
         <div class="container">
@@ -480,7 +787,7 @@
                         <li>Conscience Gate mechanism (pause without shame)</li>
                         <li>Integrity checks for all participants</li>
                         <li>PDF export of your complete plan</li>
-                        <li>Example library of successful builds</li>
+                        <li>Example library organized by moral framework</li>
                         <li>Active build dashboard</li>
                     </ul>
                     <div class="tip">
@@ -665,7 +972,8 @@
                 <p><strong>Team Needed:</strong> Add 1 backend dev, 1 content curator, 2-3 testers</p>
                 <p><strong>Features:</strong></p>
                 <ul style="margin-left: 2rem; margin-top: 0.5rem;">
-                    <li>Example library (browse successful builds)</li>
+                    <li>Hall of Moral Translation (browse by framework)</li>
+                    <li>Example library with 50+ real cases</li>
                     <li>Active build dashboard (track your proofs)</li>
                     <li>Change-log feature (document learning)</li>
                     <li>Three-lens ethics check (optional tool)</li>
@@ -678,9 +986,10 @@
                 <p><strong>Timeline:</strong> 4-6 weeks</p>
                 <p><strong>Goals:</strong></p>
                 <ul style="margin-left: 2rem; margin-top: 0.5rem;">
-                    <li>50+ beta users build real proofs</li>
+                    <li>Recruit 50+ beta users to build real proofs</li>
                     <li>Track: completion rate, launch rate, 60-day sustainability</li>
                     <li>Iterate based on feedback</li>
+                    <li>Document what works and why</li>
                     <li>Prepare for public launch</li>
                 </ul>
             </div>
