@@ -380,6 +380,100 @@
             resize: vertical;
         }
         
+        .convergence-item {
+            background: #f0f9ff;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border-left: 3px solid #2563eb;
+        }
+        
+        .convergence-item strong {
+            display: block;
+            color: #1e40af;
+            margin-bottom: 0.5rem;
+        }
+        
+        .outcome-band-section {
+            background: #f0f9ff;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        
+        .outcome-band-section.success {
+            background: #d1fae5;
+            border-left: 3px solid #10b981;
+        }
+        
+        .outcome-band-section.mixed {
+            background: #fef3c7;
+            border-left: 3px solid #f59e0b;
+        }
+        
+        .outcome-band-section.failure {
+            background: #fee2e2;
+            border-left: 3px solid #dc2626;
+        }
+        
+        .atcf-slider {
+            margin: 1.5rem 0;
+        }
+        
+        .atcf-slider label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .atcf-slider input[type="range"] {
+            width: 100%;
+            margin: 0.5rem 0;
+        }
+        
+        .atcf-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.25rem;
+        }
+        
+        .atcf-score-display {
+            background: #dbeafe;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 1.5rem;
+            border: 2px solid #2563eb;
+        }
+        
+        .atcf-score-display strong {
+            display: block;
+            font-size: 1.5rem;
+            color: #1e40af;
+            margin-bottom: 0.5rem;
+        }
+        
+        .summary-box {
+            background: #f9fafb;
+            padding: 2rem;
+            border-radius: 8px;
+            border: 2px solid #e5e7eb;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            margin: 2rem 0;
+        }
+        
+        .summary-box h4 {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #1e40af;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
         .examples {
             background: #fef3c7;
             padding: 1rem;
@@ -978,7 +1072,7 @@
         <div class="container">
             <h2 style="text-align: center; margin-bottom: 2rem;">Interactive Demo</h2>
             <p style="text-align: center; max-width: 600px; margin: 0 auto 3rem; color: #666;">
-                This is a simplified demonstration of what CommonBuilder will do. Try building your first coordination experiment!
+                This enhanced demo now includes: Convergence Check, Precise Outcome Bands, ATCF Scoring, and 5-Line Summary format—improvements inspired by the Commonwealth of One methodology.
             </p>
             
             <div class="demo-container">
@@ -990,17 +1084,16 @@
                 <div class="screen active" id="screen1">
                     <h3>Welcome to CommonBuilder</h3>
                     <p>Let's walk through designing your first coordination experiment.</p>
-                    <p>This demo shows 3 key steps. The full app will have 8 steps plus features like:</p>
+                    <p>This demo now shows 7 key steps with enhanced features:</p>
                     <ul style="margin-left: 2rem; margin-bottom: 1.5rem; color: #666;">
-                        <li>Identity Kernel builder (protect your core values)</li>
-                        <li>Conscience Gate mechanism (pause without shame)</li>
-                        <li>Integrity checks for all participants</li>
-                        <li>PDF export of your complete plan</li>
-                        <li>Example library organized by moral framework</li>
-                        <li>Active build dashboard</li>
+                        <li><strong>Convergence Check:</strong> Verify each stakeholder gains something authentic</li>
+                        <li><strong>Precise Outcome Bands:</strong> Structured success/mixed/failure thresholds</li>
+                        <li><strong>ATCF Scoring:</strong> Quantified integrity protection (0-5 scale)</li>
+                        <li><strong>5-Line Summary:</strong> One-page actionable export format</li>
+                        <li>Plus: Identity Kernel, Conscience Gate, and more in full app</li>
                     </ul>
                     <div class="tip">
-                        <strong>💡 This is a demo:</strong> You're seeing version 0.1. The full app is being built by a student team. Want to help? <a href="#join">Join us!</a>
+                        <strong>💡 New in this version:</strong> These improvements are inspired by the "Commonwealth of One" methodology—using evidence-based experiments to coordinate diverse stakeholders (or inner roles) without soul-cost.
                     </div>
                     <div class="button-group">
                         <div></div>
@@ -1081,61 +1174,276 @@
                     
                     <div class="button-group">
                         <button class="btn-secondary" onclick="prevScreen()">← Back</button>
-                        <button class="btn-primary" onclick="nextScreen()">See Preview →</button>
+                        <button class="btn-primary" onclick="nextScreen()">Next: Convergence Check →</button>
                     </div>
                 </div>
 
-                <!-- Screen 4: Preview / Coming Soon -->
+                <!-- Screen 4: NEW - Convergence Check -->
                 <div class="screen" id="screen4">
-                    <h3>Preview Your Build</h3>
-                    <p>Here's what you've designed so far:</p>
-                    
-                    <div style="background: #f9fafb; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0; border-left: 4px solid #2563eb;">
-                        <h4 style="margin-bottom: 1rem; color: #1e40af;">YOUR PROOF OF CARE (L0)</h4>
-                        <p><strong>The Problem:</strong></p>
-                        <p id="previewProblem" style="margin-bottom: 1rem; color: #666;">
-                            [Your problem description will appear here]
-                        </p>
-                        <p><strong>The Shared Function:</strong></p>
-                        <p id="previewFunction" style="color: #666;">
-                            [Your shared function will appear here]
-                        </p>
-                    </div>
-                    
-                    <h4 style="margin-top: 2rem; margin-bottom: 1rem;">Next Steps in Full App:</h4>
-                    
-                    <div class="coming-soon">
-                        <h4>📋 Design the L0 Protocol</h4>
-                        <p>Define the smallest test: scope, duration, resources, roles</p>
-                    </div>
-                    
-                    <div class="coming-soon">
-                        <h4>✅ Success Criteria (Outcome Band)</h4>
-                        <p>Set measurable thresholds: success/mixed/learning</p>
-                    </div>
-                    
-                    <div class="coming-soon">
-                        <h4>❤️ Integrity Check</h4>
-                        <p>Verify each participant can join without violating their Identity Kernel</p>
-                    </div>
-                    
-                    <div class="coming-soon">
-                        <h4>⚠️ Conscience Gate Setup</h4>
-                        <p>Pre-specify alternative roles if someone needs to pause</p>
-                    </div>
-                    
-                    <div class="coming-soon">
-                        <h4>📄 Generate PDF Plan</h4>
-                        <p>Export complete, shareable document ready to use</p>
-                    </div>
+                    <h3>✓ Convergence Check</h3>
+                    <p>For true functional equivalence, each stakeholder should gain something they authentically value—not just tolerate the arrangement.</p>
                     
                     <div class="tip">
-                        <strong>This demo shows the concept.</strong> The full app will guide you through all these steps and generate a complete, usable plan. Want to help build it? <a href="#join">We're recruiting!</a>
+                        <strong>💡 Why this matters:</strong> If only one stakeholder benefits while others sacrifice, you haven't found convergence—you've found coercion. Functional equivalence means everyone gets something they actually want.
+                    </div>
+                    
+                    <h4 style="margin-top: 2rem; margin-bottom: 1rem;">List your key stakeholders and what each GAINS:</h4>
+                    
+                    <div class="convergence-item">
+                        <strong>Stakeholder 1:</strong>
+                        <input type="text" id="stake1name" placeholder="e.g., Trustees" style="width: 100%; margin-bottom: 0.5rem; padding: 0.5rem; border: 2px solid #e5e7eb; border-radius: 4px;">
+                        <label style="font-weight: normal; font-size: 0.9rem; color: #666;">What do they gain?</label>
+                        <input type="text" id="stake1gain" placeholder="e.g., Evidence for fiduciary decisions without risk" style="width: 100%; margin-top: 0.25rem; padding: 0.5rem; border: 2px solid #e5e7eb; border-radius: 4px;">
+                    </div>
+                    
+                    <div class="convergence-item">
+                        <strong>Stakeholder 2:</strong>
+                        <input type="text" id="stake2name" placeholder="e.g., Students" style="width: 100%; margin-bottom: 0.5rem; padding: 0.5rem; border: 2px solid #e5e7eb; border-radius: 4px;">
+                        <label style="font-weight: normal; font-size: 0.9rem; color: #666;">What do they gain?</label>
+                        <input type="text" id="stake2gain" placeholder="e.g., Real climate action + accountability data" style="width: 100%; margin-top: 0.25rem; padding: 0.5rem; border: 2px solid #e5e7eb; border-radius: 4px;">
+                    </div>
+                    
+                    <div class="convergence-item">
+                        <strong>Stakeholder 3:</strong>
+                        <input type="text" id="stake3name" placeholder="e.g., CIO / Investment Office" style="width: 100%; margin-bottom: 0.5rem; padding: 0.5rem; border: 2px solid #e5e7eb; border-radius: 4px;">
+                        <label style="font-weight: normal; font-size: 0.9rem; color: #666;">What do they gain?</label>
+                        <input type="text" id="stake3gain" placeholder="e.g., Performance data + portfolio innovation test" style="width: 100%; margin-top: 0.25rem; padding: 0.5rem; border: 2px solid #e5e7eb; border-radius: 4px;">
+                    </div>
+                    
+                    <button onclick="addStakeholder()" style="margin-top: 1rem; background: #e5e7eb; color: #666; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer;">
+                        ➕ Add Another Stakeholder
+                    </button>
+                    
+                    <div class="examples" style="margin-top: 2rem;">
+                        <h4>✅ Good convergence looks like:</h4>
+                        <ul>
+                            <li>Each stakeholder can authentically say "I want this outcome for MY reasons"</li>
+                            <li>No one is just "going along" or being coerced</li>
+                            <li>Different motivations, but genuinely aligned on the function to test</li>
+                        </ul>
                     </div>
                     
                     <div class="button-group">
                         <button class="btn-secondary" onclick="prevScreen()">← Back</button>
-                        <button class="btn-primary" onclick="alert('Full app coming soon! Join the team to help build it.')">Download PDF (Coming Soon)</button>
+                        <button class="btn-primary" onclick="nextScreen()">Next: Outcome Bands →</button>
+                    </div>
+                </div>
+
+                <!-- Screen 5: NEW - Precise Outcome Bands -->
+                <div class="screen" id="screen5">
+                    <h3>Set Precise Outcome Bands</h3>
+                    <p>Pre-declare specific, measurable thresholds. This isn't about wishful thinking—it's about evidence you can audit.</p>
+                    
+                    <div class="tip">
+                        <strong>💡 Why pre-register:</strong> Declaring success criteria BEFORE you run the experiment prevents motivated reasoning and builds trust. Everyone knows what counts as "working."
+                    </div>
+                    
+                    <div class="outcome-band-section success">
+                        <h4 style="color: #065f46; margin-bottom: 1rem;">✓ SUCCESS means (must achieve ALL):</h4>
+                        <div style="margin-bottom: 0.75rem;">
+                            <input type="text" id="success1" placeholder="e.g., Return within ±0.5% of benchmark" style="width: 100%; padding: 0.5rem; border: 2px solid #10b981; border-radius: 4px;">
+                        </div>
+                        <div style="margin-bottom: 0.75rem;">
+                            <input type="text" id="success2" placeholder="e.g., Emissions reduced by ≥5%" style="width: 100%; padding: 0.5rem; border: 2px solid #10b981; border-radius: 4px;">
+                        </div>
+                        <div>
+                            <input type="text" id="success3" placeholder="e.g., No major operational issues" style="width: 100%; padding: 0.5rem; border: 2px solid #10b981; border-radius: 4px;">
+                        </div>
+                        <button onclick="addSuccessCriteria()" style="margin-top: 0.75rem; background: #10b981; color: white; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; font-size: 0.9rem;">
+                            ➕ Add criterion
+                        </button>
+                    </div>
+                    
+                    <div class="outcome-band-section mixed">
+                        <h4 style="color: #92400e; margin-bottom: 1rem;">⚠️ MIXED means:</h4>
+                        <textarea id="mixedCriteria" placeholder="e.g., Hit one target but missed the other, OR hit both but with operational problems that could be fixed" style="width: 100%; padding: 0.75rem; border: 2px solid #f59e0b; border-radius: 4px; min-height: 60px;"></textarea>
+                    </div>
+                    
+                    <div class="outcome-band-section failure">
+                        <h4 style="color: #991b1b; margin-bottom: 1rem;">❌ LEARNING (failure) means:</h4>
+                        <textarea id="failureCriteria" placeholder="e.g., Return >0.5% below benchmark OR emissions increased OR unfixable operational problems" style="width: 100%; padding: 0.75rem; border: 2px solid #dc2626; border-radius: 4px; min-height: 60px;"></textarea>
+                    </div>
+                    
+                    <div class="examples" style="margin-top: 2rem;">
+                        <h4>📏 Good thresholds are:</h4>
+                        <ul>
+                            <li><strong>Specific:</strong> "±0.5%" not "roughly similar"</li>
+                            <li><strong>Measurable:</strong> "≥5% reduction" not "noticeable improvement"</li>
+                            <li><strong>Time-bound:</strong> "over 12 months" not "eventually"</li>
+                            <li><strong>Pre-declared:</strong> Set BEFORE you start, not after you see results</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button class="btn-secondary" onclick="prevScreen()">← Back</button>
+                        <button class="btn-primary" onclick="nextScreen()">Next: ATCF Scoring →</button>
+                    </div>
+                </div>
+
+                <!-- Screen 6: NEW - ATCF Scoring -->
+                <div class="screen" id="screen6">
+                    <h3>ATCF Integrity Scoring</h3>
+                    <p>Rate how well this Proof preserves everyone's integrity on a 0-5 scale. This makes "No Soul-Cost" measurable and auditable.</p>
+                    
+                    <div class="tip">
+                        <strong>💡 ATCF = Autonomy & Temporal Coherence of the Feeling of Self:</strong> The formal term for "No Soul-Cost." We're checking if participation honors each person's core identity and is sustainable over time.
+                    </div>
+                    
+                    <div class="atcf-slider">
+                        <label>1. Identity Kernel Alignment</label>
+                        <p style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;">Does this honor core values? Can people participate without betraying who they are?</p>
+                        <input type="range" id="atcf1" min="0" max="5" value="5" oninput="updateATCF()">
+                        <div class="atcf-labels">
+                            <span>0 = Violates core values</span>
+                            <span>3 = Neutral</span>
+                            <span>5 = Strongly honors values</span>
+                        </div>
+                        <div style="text-align: center; margin-top: 0.5rem; font-weight: 600; color: #2563eb;">
+                            Score: <span id="atcf1val">5</span> / 5
+                        </div>
+                    </div>
+                    
+                    <div class="atcf-slider">
+                        <label>2. Autonomy (Voluntary Participation)</label>
+                        <p style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;">Is participation truly voluntary? Can anyone exit without penalty?</p>
+                        <input type="range" id="atcf2" min="0" max="5" value="5" oninput="updateATCF()">
+                        <div class="atcf-labels">
+                            <span>0 = Coerced</span>
+                            <span>3 = Some pressure</span>
+                            <span>5 = Fully voluntary</span>
+                        </div>
+                        <div style="text-align: center; margin-top: 0.5rem; font-weight: 600; color: #2563eb;">
+                            Score: <span id="atcf2val">5</span> / 5
+                        </div>
+                    </div>
+                    
+                    <div class="atcf-slider">
+                        <label>3. Temporal Coherence (Sustainability)</label>
+                        <p style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;">Is this sustainable over time? Does it honor past commitments and future goals?</p>
+                        <input type="range" id="atcf3" min="0" max="5" value="4" oninput="updateATCF()">
+                        <div class="atcf-labels">
+                            <span>0 = Unsustainable</span>
+                            <span>3 = Manageable</span>
+                            <span>5 = Highly sustainable</span>
+                        </div>
+                        <div style="text-align: center; margin-top: 0.5rem; font-weight: 600; color: #2563eb;">
+                            Score: <span id="atcf3val">4</span> / 5
+                        </div>
+                    </div>
+                    
+                    <div class="atcf-slider">
+                        <label>4. Exit Clarity (Clean Departure)</label>
+                        <p style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;">Is the exit path clear? Can anyone leave without reputational or practical harm?</p>
+                        <input type="range" id="atcf4" min="0" max="5" value="5" oninput="updateATCF()">
+                        <div class="atcf-labels">
+                            <span>0 = Locked in</span>
+                            <span>3 = Exit possible but costly</span>
+                            <span>5 = Clean exit available</span>
+                        </div>
+                        <div style="text-align: center; margin-top: 0.5rem; font-weight: 600; color: #2563eb;">
+                            Score: <span id="atcf4val">5</span> / 5
+                        </div>
+                    </div>
+                    
+                    <div class="atcf-score-display">
+                        <strong>Average ATCF Score: <span id="atcfAvg">4.75</span> / 5.0</strong>
+                        <p style="margin-top: 0.75rem; font-size: 0.9rem; color: #1e40af;" id="atcfInterpretation">
+                            ✓ Excellent integrity protection. This Proof honors participants' core values and is sustainable.
+                        </p>
+                    </div>
+                    
+                    <div class="examples" style="margin-top: 2rem;">
+                        <h4>🎯 Interpretation guide:</h4>
+                        <ul>
+                            <li><strong>4.0-5.0:</strong> Excellent integrity protection ✓</li>
+                            <li><strong>3.0-3.9:</strong> Acceptable, but watch for soul-cost signals ⚠️</li>
+                            <li><strong>Below 3.0:</strong> High soul-cost risk—redesign before launching ❌</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button class="btn-secondary" onclick="prevScreen()">← Back</button>
+                        <button class="btn-primary" onclick="nextScreen()">Next: Review & Summary →</button>
+                    </div>
+                </div>
+
+                <!-- Screen 7: NEW - 5-Line Summary with Decision Rules -->
+                <div class="screen" id="screen7">
+                    <h3>Your Proof of Care (L0) - Ready to Launch</h3>
+                    <p>Here's your complete one-page summary in the standard format. This is what you'll share with participants and use to track results.</p>
+                    
+                    <div class="summary-box">
+                        <h4>PROOF OF CARE (L0) - ONE-PAGE SUMMARY</h4>
+                        
+                        <strong>FUNCTION:</strong><br>
+                        <span id="summaryFunction">[Your shared function will appear here]</span>
+                        <br><br>
+                        
+                        <strong>PROTOCOL (L0 - 12 months):</strong><br>
+                        • Scope: 1% of resource allocation<br>
+                        • Roles: [Auto-generated from stakeholders]<br>
+                        • Data: Monthly dashboard, quarterly reports, final audit<br>
+                        <br>
+                        
+                        <strong>OUTCOME BAND:</strong><br>
+                        ✓ Success: <span id="summarySuccess">[Success criteria]</span><br>
+                        ⚠️ Mixed: <span id="summaryMixed">[Mixed criteria]</span><br>
+                        ❌ Learning: <span id="summaryFailure">[Failure criteria]</span><br>
+                        <br>
+                        
+                        <strong>CONVERGENT REASONS:</strong><br>
+                        <span id="summaryConvergence">
+                        • Stakeholder 1: [Their authentic gain]<br>
+                        • Stakeholder 2: [Their authentic gain]<br>
+                        • Stakeholder 3: [Their authentic gain]
+                        </span>
+                        <br><br>
+                        
+                        <strong>ATCF SCORES (0-5):</strong><br>
+                        IK Alignment: <span id="summaryATCF1">5</span> | 
+                        Autonomy: <span id="summaryATCF2">5</span> | 
+                        Temporal Coherence: <span id="summaryATCF3">4</span> | 
+                        Exit Clarity: <span id="summaryATCF4">5</span><br>
+                        Average: <span id="summaryATCFAvg">4.75</span> / 5.0 ✓
+                        <br><br>
+                        
+                        <strong>DECISION RULE:</strong><br>
+                        If success → Scale to L1 (5x scope, 3 years)<br>
+                        If mixed → Adjust protocol, rerun L0<br>
+                        If learning → Publish results, sunset with lessons documented
+                        <br><br>
+                        
+                        <div style="border-top: 1px solid #e5e7eb; padding-top: 1rem; margin-top: 1rem;">
+                        Generated by CommonBuilder | commonbuilder.org
+                        </div>
+                    </div>
+                    
+                    <div class="tip">
+                        <strong>💡 What happens next:</strong><br>
+                        1. Share this summary with all participants<br>
+                        2. Run the L0 experiment as specified<br>
+                        3. Track results against your outcome bands<br>
+                        4. Apply the decision rule: scale, adjust, or sunset<br>
+                        5. Publish your results (success OR failure—both are learning)
+                    </div>
+                    
+                    <div style="background: #dbeafe; padding: 1.5rem; border-radius: 8px; margin-top: 2rem; border-left: 4px solid #2563eb;">
+                        <strong style="color: #1e40af; display: block; margin-bottom: 0.5rem;">The Full App Will Include:</strong>
+                        <ul style="color: #475569; margin-left: 1.5rem;">
+                            <li>PDF export of this summary</li>
+                            <li>Shareable links for participants</li>
+                            <li>Built-in tracking dashboard</li>
+                            <li>Automated decision logic (met band → scale prompt)</li>
+                            <li>Change-log for documenting iterations</li>
+                            <li>Conscience Gate invocation tool</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button class="btn-secondary" onclick="prevScreen()">← Back</button>
+                        <button class="btn-primary" onclick="alert('Full app coming soon! This summary format is ready to use—just copy it into a document. Join the team to help build the automated version.')">
+                            Download Summary (Coming Soon)
+                        </button>
                     </div>
                 </div>
             </div>
@@ -1157,7 +1465,7 @@
                     <li>Recruit development team</li>
                     <li>Validate that people understand the concept</li>
                 </ul>
-                <p><strong>Status:</strong> In progress. Share feedback!</p>
+                <p><strong>Status:</strong> Enhanced demo with Co₁-inspired improvements completed!</p>
             </div>
             
             <div class="phase">
@@ -1166,10 +1474,10 @@
                 <p><strong>Team Needed:</strong> 2-3 frontend developers, 1-2 backend developers, 1 UI/UX designer</p>
                 <p><strong>Features:</strong></p>
                 <ul style="margin-left: 2rem; margin-top: 0.5rem;">
-                    <li>Complete all 8 screens of the builder flow</li>
-                    <li>Identity Kernel tool</li>
-                    <li>Conscience Gate mechanism</li>
-                    <li>PDF export with professional formatting</li>
+                    <li>Complete all 8 screens with full data capture</li>
+                    <li>Convergence Check automation</li>
+                    <li>ATCF scoring with visual indicators</li>
+                    <li>PDF export with 5-line summary format</li>
                     <li>User accounts and save progress</li>
                     <li>Mobile-responsive design</li>
                 </ul>
@@ -1280,7 +1588,7 @@
 
     <script>
         let currentScreen = 1;
-        const totalScreens = 4;
+        const totalScreens = 7;
 
         function updateProgress() {
             const progress = ((currentScreen - 1) / (totalScreens - 1)) * 100;
@@ -1292,13 +1600,41 @@
                 // Save data before moving
                 if (currentScreen === 2) {
                     const problem = document.getElementById('stuckProblem').value;
-                    document.getElementById('previewProblem').textContent = 
-                        problem || '[Your problem description will appear here]';
                 }
                 if (currentScreen === 3) {
                     const func = document.getElementById('sharedFunction').value;
-                    document.getElementById('previewFunction').textContent = 
-                        func || '[Your shared function will appear here]';
+                    document.getElementById('summaryFunction').textContent = 
+                        func || 'Test if [your function here]';
+                }
+                if (currentScreen === 4) {
+                    // Save convergence data
+                    const stake1name = document.getElementById('stake1name').value || 'Stakeholder 1';
+                    const stake1gain = document.getElementById('stake1gain').value || '[Their gain]';
+                    const stake2name = document.getElementById('stake2name').value || 'Stakeholder 2';
+                    const stake2gain = document.getElementById('stake2gain').value || '[Their gain]';
+                    const stake3name = document.getElementById('stake3name').value || 'Stakeholder 3';
+                    const stake3gain = document.getElementById('stake3gain').value || '[Their gain]';
+                    
+                    document.getElementById('summaryConvergence').innerHTML = 
+                        '• ' + stake1name + ': ' + stake1gain + '<br>' +
+                        '• ' + stake2name + ': ' + stake2gain + '<br>' +
+                        '• ' + stake3name + ': ' + stake3gain;
+                }
+                if (currentScreen === 5) {
+                    // Save outcome bands
+                    const success1 = document.getElementById('success1').value || '[Success criterion 1]';
+                    const success2 = document.getElementById('success2').value || '[Success criterion 2]';
+                    const success3 = document.getElementById('success3').value || '[Success criterion 3]';
+                    document.getElementById('summarySuccess').textContent = 
+                        success1 + ' AND ' + success2 + ' AND ' + success3;
+                    
+                    document.getElementById('summaryMixed').textContent = 
+                        document.getElementById('mixedCriteria').value || '[Mixed criteria]';
+                    document.getElementById('summaryFailure').textContent = 
+                        document.getElementById('failureCriteria').value || '[Failure criteria]';
+                }
+                if (currentScreen === 6) {
+                    // ATCF scores already updated in real-time
                 }
                 
                 document.getElementById('screen' + currentScreen).classList.remove('active');
@@ -1319,6 +1655,49 @@
             }
         }
 
+        function updateATCF() {
+            const atcf1 = parseInt(document.getElementById('atcf1').value);
+            const atcf2 = parseInt(document.getElementById('atcf2').value);
+            const atcf3 = parseInt(document.getElementById('atcf3').value);
+            const atcf4 = parseInt(document.getElementById('atcf4').value);
+            
+            document.getElementById('atcf1val').textContent = atcf1;
+            document.getElementById('atcf2val').textContent = atcf2;
+            document.getElementById('atcf3val').textContent = atcf3;
+            document.getElementById('atcf4val').textContent = atcf4;
+            
+            const avg = ((atcf1 + atcf2 + atcf3 + atcf4) / 4).toFixed(2);
+            document.getElementById('atcfAvg').textContent = avg;
+            
+            // Update summary values
+            document.getElementById('summaryATCF1').textContent = atcf1;
+            document.getElementById('summaryATCF2').textContent = atcf2;
+            document.getElementById('summaryATCF3').textContent = atcf3;
+            document.getElementById('summaryATCF4').textContent = atcf4;
+            document.getElementById('summaryATCFAvg').textContent = avg;
+            
+            // Update interpretation
+            const interp = document.getElementById('atcfInterpretation');
+            if (avg >= 4.0) {
+                interp.textContent = '✓ Excellent integrity protection. This Proof honors participants\' core values and is sustainable.';
+                interp.style.color = '#1e40af';
+            } else if (avg >= 3.0) {
+                interp.textContent = '⚠️ Acceptable, but watch for soul-cost signals. Consider strengthening weak areas.';
+                interp.style.color = '#92400e';
+            } else {
+                interp.textContent = '❌ High soul-cost risk. Redesign to improve integrity protection before launching.';
+                interp.style.color = '#991b1b';
+            }
+        }
+
+        function addStakeholder() {
+            alert('In the full app, you can add unlimited stakeholders. For this demo, use the three provided fields.');
+        }
+
+        function addSuccessCriteria() {
+            alert('In the full app, you can add unlimited success criteria. For this demo, use the three provided fields.');
+        }
+
         // Smooth scrolling for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1334,6 +1713,7 @@
         });
 
         updateProgress();
+        updateATCF(); // Initialize ATCF display
     </script>
 </body>
 </html>
